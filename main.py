@@ -2,6 +2,7 @@ import pygame as pg
 import random, time
 pg.init()
 clock = pg.time.Clock()
+import asyncio
 
 black = (0, 0, 0)
 
@@ -159,7 +160,7 @@ def cap_lives():
     if lives > 4 :
         lives = 4
 
-def main():
+async def main():
 
     global running, player_pos
 
@@ -204,4 +205,6 @@ def main():
         clock.tick(30)
         pg.display.flip()
 
-main()
+        await asyncio.sleep(0)
+
+asyncio.run(main())
